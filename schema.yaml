@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+    version: 1.0.0
+    title: 'CatFacts API'
+paths:
+    /facts/random:
+        get:
+            operationId: randomFact
+            responses:
+                200:
+                    description: ""
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Fact"
+components:
+    schemas:
+        Fact:
+            type: object
+            properties:
+                _id:
+                    type: string
+                    description: "Unique ID for the `Fact`"
+                __v:
+                    type: integer
+                    description: "Version number of the `Fact`"
+                user:
+                    type: string
+                    description: "ID of the `User` who added the `Fact`"
+                text:
+                    type: string
+                    description: "The `Fact` itself"
+                updatedAt:
+                    type: string
+                    description: "Date in which `Fact` was last modified"
+                sendDate:
+                    type: string
+                    description: "If the `Fact` is meant for one time use, this is the date that it is used"
+                deleted:
+                    type: boolean
+                    description: "Weather or not the `Fact` has been deleted (Soft deletes are used)"
+                source:
+                    type: string
+                    description: "Can be 'user' or 'api', indicates who added the fact to the DB"
+                used:
+                    type: boolean
+                    description: "Weather or not the `Fact` has been sent by the CatBot. This value is reset each time every `Fact` is used"
+                type:
+                    type: string
+                    description: "Type of animal the `Fact` describes (e.g. ‘cat’, ‘dog’, ‘horse’)"

@@ -1,0 +1,7 @@
+<?php
+
+return [
+    'openapi-file' => __DIR__ . '/schema.yaml',
+    'namespace' => 'CatFacts\Api',
+    'directory' => __DIR__ . '/generated/',
+];

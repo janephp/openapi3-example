@@ -1,0 +1,27 @@
+{
+    "name": "janephp/openapi3-example",
+    "description": "An example of OpenAPI 3 Client generated with JanePHP",
+    "keywords": ["example", "jane", "janephp", "api", "client", "openapi", "swagger", "sdk"],
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">= 7.1",
+        "jane-php/open-api-runtime": "^5.0",
+        "php-http/curl-client": "^1.0",
+        "guzzlehttp/psr7": "^1.6"
+    },
+    "require-dev": {
+        "jane-php/open-api": "^5.0",
+        "friendsofphp/php-cs-fixer": "^2.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "CatFacts\\": "src/",
+            "CatFacts\\Api\\": "generated/"
+        }
+    },
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix",
+        "generate": "rm -r generated/* ; jane-openapi generate"
+    }
+}
