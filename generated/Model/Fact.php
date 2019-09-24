@@ -39,7 +39,7 @@ class Fact
     /**
      * Date in which `Fact` was last modified.
      *
-     * @var string
+     * @var \DateTime
      */
     protected $updatedAt;
     /**
@@ -172,9 +172,9 @@ class Fact
     /**
      * Date in which `Fact` was last modified.
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): \DateTime
     {
         return $this->updatedAt;
     }
@@ -182,11 +182,11 @@ class Fact
     /**
      * Date in which `Fact` was last modified.
      *
-     * @param string $updatedAt
+     * @param \DateTime $updatedAt
      *
      * @return self
      */
-    public function setUpdatedAt(string $updatedAt): self
+    public function setUpdatedAt(\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 

@@ -52,7 +52,7 @@ class FactNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
             $object->setText($data->{'text'});
         }
         if (property_exists($data, 'updatedAt')) {
-            $object->setUpdatedAt($data->{'updatedAt'});
+            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:s.vP", $data->{'updatedAt'}));
         }
         if (property_exists($data, 'sendDate')) {
             $object->setSendDate($data->{'sendDate'});
@@ -89,7 +89,7 @@ class FactNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
             $data->{'text'} = $object->getText();
         }
         if (null !== $object->getUpdatedAt()) {
-            $data->{'updatedAt'} = $object->getUpdatedAt();
+            $data->{'updatedAt'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:s.vP");
         }
         if (null !== $object->getSendDate()) {
             $data->{'sendDate'} = $object->getSendDate();
