@@ -2,6 +2,8 @@ openapi: 3.0.0
 info:
     version: 1.0.0
     title: 'CatFacts API'
+servers:
+    - url: https://cat-fact.herokuapp.com
 paths:
     /facts/random:
         get:

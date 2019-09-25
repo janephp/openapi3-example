@@ -5,13 +5,13 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": ">= 7.1",
-        "jane-php/open-api-runtime": "^5.0",
-        "php-http/curl-client": "^1.0",
-        "guzzlehttp/psr7": "^1.6"
+        "php": ">= 7.2",
+        "jane-php/open-api-runtime": "@dev",
+        "symfony/http-client": "^4.3",
+        "nyholm/psr7": "^1.2"
     },
     "require-dev": {
-        "jane-php/open-api": "^5.0",
+        "jane-php/open-api": "@dev",
         "friendsofphp/php-cs-fixer": "^2.15"
     },
     "autoload": {

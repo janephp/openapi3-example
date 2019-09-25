@@ -5,4 +5,5 @@ return [
     'namespace' => 'CatFacts\Api',
     'directory' => __DIR__ . '/generated/',
     'date-format' => \DateTimeInterface::RFC3339_EXTENDED,
+    'client' => 'psr18',
 ];
