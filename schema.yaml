@@ -10,11 +10,11 @@ paths:
             operationId: randomFact
             responses:
                 200:
-                    description: ""
+                    description: 'Get a random `Fact`'
                     content:
                         application/json:
                             schema:
-                                $ref: "#/components/schemas/Fact"
+                                $ref: '#/components/schemas/Fact'
 components:
     schemas:
         Fact:
@@ -22,32 +22,32 @@ components:
             properties:
                 _id:
                     type: string
-                    description: "Unique ID for the `Fact`"
+                    description: 'Unique ID for the `Fact`'
                 __v:
                     type: integer
-                    description: "Version number of the `Fact`"
+                    description: 'Version number of the `Fact`'
                 user:
                     type: string
-                    description: "ID of the `User` who added the `Fact`"
+                    description: 'ID of the `User` who added the `Fact`'
                 text:
                     type: string
-                    description: "The `Fact` itself"
+                    description: 'The `Fact` itself'
                 updatedAt:
                     type: string
                     format: date-time
-                    description: "Date in which `Fact` was last modified"
+                    description: 'Date in which `Fact` was last modified'
                 sendDate:
                     type: string
-                    description: "If the `Fact` is meant for one time use, this is the date that it is used"
+                    description: 'If the `Fact` is meant for one time use, this is the date that it is used'
                 deleted:
                     type: boolean
-                    description: "Weather or not the `Fact` has been deleted (Soft deletes are used)"
+                    description: 'Weather or not the `Fact` has been deleted (Soft deletes are used)'
                 source:
                     type: string
-                    description: "Can be 'user' or 'api', indicates who added the fact to the DB"
+                    description: 'Can be `user` or `api`, indicates who added the fact to the DB'
                 used:
                     type: boolean
-                    description: "Weather or not the `Fact` has been sent by the CatBot. This value is reset each time every `Fact` is used"
+                    description: 'Weather or not the `Fact` has been sent by the CatBot. This value is reset each time every `Fact` is used'
                 type:
                     type: string
-                    description: "Type of animal the `Fact` describes (e.g. ‘cat’, ‘dog’, ‘horse’)"
+                    description: 'Type of animal the `Fact` describes (e.g. ‘cat’, ‘dog’, ‘horse’)'
