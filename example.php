@@ -8,8 +8,7 @@ use CatFacts\Api\Client;
 $client = Client::create();
 
 // request d'un endpoint
-$fact = $client->randomFact();
-var_dump($fact);
+var_dump($fact = $client->randomFact());
 
 // object(CatFacts\Api\Model\Fact)#23 (10) {
 //     ["id":protected]=>
@@ -33,3 +32,6 @@ var_dump($fact);
 //     ["type":protected]=>
 //     string(3) "cat"
 // }
+
+$normalizer = new \CatFacts\Api\Normalizer\FactNormalizer();
+var_dump($normalizer->normalize($fact));

@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace CatFacts\Api\Normalizer;
 
+require_once __DIR__.'/../Proxy/FactProxy.php';
+
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -38,36 +40,38 @@ class FactNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
         if (!is_object($data)) {
             throw new InvalidArgumentException();
         }
-        $object = new \CatFacts\Api\Model\Fact();
+        $object = new \FactProxy();
+        $properties = $object->__properties();
+
         if (property_exists($data, '_id')) {
-            $object->setId($data->{'_id'});
+            $properties['_id'] = $data->{'_id'};
         }
         if (property_exists($data, '__v')) {
-            $object->setV($data->{'__v'});
+            $properties['__v'] = $data->{'__v'};
         }
         if (property_exists($data, 'user')) {
-            $object->setUser($data->{'user'});
+            $properties['user'] = $data->{'user'};
         }
         if (property_exists($data, 'text')) {
-            $object->setText($data->{'text'});
+            $properties['text'] = $data->{'text'};
         }
         if (property_exists($data, 'updatedAt')) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:s.vP", $data->{'updatedAt'}));
+            $properties['updatedAt'] = \DateTime::createFromFormat("Y-m-d\TH:i:s.vP", $data->{'updatedAt'});
         }
         if (property_exists($data, 'sendDate')) {
-            $object->setSendDate($data->{'sendDate'});
+            $properties['sendDate'] = $data->{'sendDate'};
         }
         if (property_exists($data, 'deleted')) {
-            $object->setDeleted($data->{'deleted'});
+            $properties['deleted'] = $data->{'deleted'};
         }
         if (property_exists($data, 'source')) {
-            $object->setSource($data->{'source'});
+            $properties['source'] = $data->{'source'};
         }
         if (property_exists($data, 'used')) {
-            $object->setUsed($data->{'used'});
+            $properties['used'] = $data->{'used'};
         }
         if (property_exists($data, 'type')) {
-            $object->setType($data->{'type'});
+            $properties['type'] = $data->{'type'};
         }
 
         return $object;
@@ -76,35 +80,37 @@ class FactNormalizer implements DenormalizerInterface, NormalizerInterface, Deno
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'_id'} = $object->getId();
+        $properties = $object->__properties();
+
+        if (null !== $properties['_id']) {
+            $data->{'_id'} = $properties['_id'];
         }
-        if (null !== $object->getV()) {
-            $data->{'__v'} = $object->getV();
+        if (null !== $properties['__v']) {
+            $data->{'__v'} = $properties['__v'];
         }
-        if (null !== $object->getUser()) {
-            $data->{'user'} = $object->getUser();
+        if (null !== $properties['user']) {
+            $data->{'user'} = $properties['user'];
         }
-        if (null !== $object->getText()) {
-            $data->{'text'} = $object->getText();
+        if (null !== $properties['text']) {
+            $data->{'text'} = $properties['text'];
         }
-        if (null !== $object->getUpdatedAt()) {
-            $data->{'updatedAt'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:s.vP");
+        if (null !== $properties['updatedAt']) {
+            $data->{'updatedAt'} = $properties['updatedAt']->format("Y-m-d\TH:i:s.vP");
         }
-        if (null !== $object->getSendDate()) {
-            $data->{'sendDate'} = $object->getSendDate();
+        if (null !== $properties['sendDate']) {
+            $data->{'sendDate'} = $properties['sendDate'];
         }
-        if (null !== $object->getDeleted()) {
-            $data->{'deleted'} = $object->getDeleted();
+        if (null !== $properties['deleted']) {
+            $data->{'deleted'} = $properties['deleted'];
         }
-        if (null !== $object->getSource()) {
-            $data->{'source'} = $object->getSource();
+        if (null !== $properties['source']) {
+            $data->{'source'} = $properties['source'];
         }
-        if (null !== $object->getUsed()) {
-            $data->{'used'} = $object->getUsed();
+        if (null !== $properties['used']) {
+            $data->{'used'} = $properties['used'];
         }
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
+        if (null !== $properties['type']) {
+            $data->{'type'} = $properties['type'];
         }
 
         return $data;
