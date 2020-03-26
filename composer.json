@@ -6,11 +6,12 @@
     "license": "MIT",
     "require": {
         "php": ">= 7.2",
-        "jane-php/jane-php": "6.x-dev",
+        "jane-php/open-api-runtime": "^6.0",
         "symfony/http-client": "^4.3",
         "nyholm/psr7": "^1.2"
     },
     "require-dev": {
+        "jane-php/open-api": "^6.0",
         "friendsofphp/php-cs-fixer": "^2.15"
     },
     "autoload": {
