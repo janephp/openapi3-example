@@ -34,7 +34,6 @@ components:
                     description: 'The `Fact` itself'
                 updatedAt:
                     type: string
-                    format: date-time
                     description: 'Date in which `Fact` was last modified'
                 sendDate:
                     type: string

@@ -6,22 +6,23 @@
     "license": "MIT",
     "require": {
         "php": ">= 7.2",
-        "jane-php/open-api-runtime": "@dev",
+        "jane-php/open-api-runtime": "^6.0",
         "symfony/http-client": "^4.3",
         "nyholm/psr7": "^1.2"
     },
     "require-dev": {
-        "jane-php/open-api": "@dev",
+        "jane-php/open-api": "^6.0",
         "friendsofphp/php-cs-fixer": "^2.15"
     },
     "autoload": {
         "psr-4": {
-            "CatFacts\\": "src/",
             "CatFacts\\Api\\": "generated/"
         }
     },
     "scripts": {
         "cs-fix": "php-cs-fixer fix",
         "generate": "rm -r generated/* ; jane-openapi generate"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
